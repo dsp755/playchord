@@ -41,6 +41,8 @@ body, html {
     color: rgb(209, 206, 178);
     background: rgba(0, 0, 0, 0.616);
     text-shadow: 0 0 .5rem black;
+    cursor: pointer;
+    outline: none;
 }
 
 .playing {
@@ -61,24 +63,32 @@ kbd {
     color: #ffc600;
   }
 
-  .footerContainer {
-    display: flex;
-    flex: 1;
-    height: 20vh;
-    align-items: flex-end;
-    justify-content: center;
-  }
+.footerContainer {
+  display: flex;
+  flex: 1;
+  height: 20vh;
+  align-items: flex-end;
+  justify-content: center;
+}
 
-  .footer {
-    border: .4rem solid rgb(153, 153, 153);
-    border-radius: .5rem;
-    margin: 1rem;
-    font-size: 1.5rem;
-    padding: 1rem .5rem;
-    transition: all .15s ease;
-    width: 10rem;
-    text-align: center;
-    color: rgb(209, 206, 178);
-    background: rgba(0, 0, 0, 0.616);
-    text-shadow: 0 0 .5rem black;
-  }
+.footer {
+  border: .4rem solid rgb(153, 153, 153);
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .15s ease;
+  width: 10rem;
+  text-align: center;
+  color: rgb(209, 206, 178);
+  background: rgba(0, 0, 0, 0.616);
+  text-shadow: 0 0 .5rem black;
+  cursor: pointer;
+  outline: none;
+}
+
+/* comment this, if dont like shadow on focused element, but with 'outline: none' it's not right */
+.footer:focus,
+.key:focus {
+  box-shadow: 0 0 .7rem #ffc600;
+}
