@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Piano</title>
   </head>
-  <body>
+  <body class="background1">
     <nav>
       <div class="menu">
         <button class="menuItem" id="tonalitySelector">
@@ -48,58 +48,58 @@
     </div>
 
       <div class="keys">
-          <button data-code="KeyA" class="key">
+          <button data-code="KeyA" data-note="C1" class="key">
               <kbd class="button-letter">A</kbd>
               <span class="sound">I</span>
             </button>
-            <button data-code="KeyS" class="key">
+            <button data-code="KeyS" data-note="D1" class="key">
               <kbd class="button-letter">S</kbd>
               <span class="sound">II</span>
             </button>
-            <button data-code="KeyD" class="key">
+            <button data-code="KeyD" data-note="E1" class="key">
               <kbd class="button-letter">D</kbd>
               <span class="sound">III</span>
             </button>
-            <button data-code="KeyF" class="key">
+            <button data-code="KeyF" data-note="F1" class="key">
               <kbd class="button-letter">F</kbd>
               <span class="sound">IV</span>
             </button>
-            <button data-code="KeyG" class="key">
+            <button data-code="KeyG" data-note="G1" class="key">
               <kbd class="button-letter">G</kbd>
               <span class="sound">V</span>
             </button>
-            <button data-code="KeyH" class="key">
+            <button data-code="KeyH" data-note="A1" class="key">
               <kbd class="button-letter">H</kbd>
               <span class="sound">VI</span>
             </button>
-            <button data-code="KeyJ" class="key">
+            <button data-code="KeyJ" data-note="B1" class="key">
               <kbd class="button-letter">J</kbd>
               <span class="sound">VII</span>
             </button>
-            <button data-code="KeyK" class="key">
+            <button data-code="KeyK" data-note="C2" class="key">
               <kbd class="button-letter">K</kbd>
               <span class="sound">VIII</span>
             </button>
       </div>
 
       <div class="keys2">
-            <button id="chord1" data-code="KeyX" class="key">
+            <button id="chord1" data-code="KeyX" data-chord="C" class="key">
                 <kbd class="button-letter">X</kbd>
                 <span class="sound">I CHORD</span>
               </button>
-              <button id="chord2" data-code="KeyC" class="key">
+              <button id="chord2" data-code="KeyC" data-chord="F" class="key">
                 <kbd class="button-letter">C</kbd>
                 <span class="sound">IV CHORD</span>
               </button>
-              <button id="chord3" data-code="KeyV" class="key">
+              <button id="chord3" data-code="KeyV" data-chord="G" class="key">
                 <kbd class="button-letter">V</kbd>
                 <span class="sound">V CHORD</span>
               </button>
-              <button id="chord4" data-code="KeyB" class="key">
+              <button id="chord4" data-code="KeyB" data-chord="Am" class="key">
                 <kbd class="button-letter">B</kbd>
                 <span class="sound">VI CHORD</span>
               </button>
-              <button id="chord5" data-code="KeyN" class="key">
+              <button id="chord5" data-code="KeyN" data-chord="Bb" class="key">
                 <kbd class="button-letter">N</kbd>
                 <span class="sound">VIIb CHORD</span>
       </div>
@@ -198,15 +198,6 @@
           </div>
     </main>
               
-      <audio data-code="KeyA" src="sounds/C.wav"></audio>
-      <audio data-code="KeyS" src="sounds/D.wav"></audio>
-      <audio data-code="KeyD" src="sounds/E.wav"></audio>
-      <audio data-code="KeyF" src="sounds/F.wav"></audio>
-      <audio data-code="KeyG" src="sounds/G.wav"></audio>
-      <audio data-code="KeyH" src="sounds/A.wav"></audio>
-      <audio data-code="KeyJ" src="sounds/B.wav"></audio>
-      <audio data-code="KeyK" src="sounds/C2.wav"></audio>
-
       <script type="text/javascript" src="./script.js"></script>
 
   </body>
