@@ -43,6 +43,7 @@ const notes = {
   const tonalityButtons = Array.from(document.querySelectorAll('.tonality-button'))
   const fullScreen = document.querySelector('#fullScreen');
   const activeKeys = [ 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN' ]
+  const chordKeys = [ 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN' ]
   let noteLetter = 'C1'
   let audio = notes[noteLetter]
 
@@ -69,6 +70,9 @@ const notes = {
   function onKeyClick(e) {
     const key = e.target.closest('button');
     key.classList.add("playing");
+
+    // IF CHORD
+
     if (key.dataset.chord) {
       const chordLetter = document.querySelector(`button[data-code="${key.dataset.code}"]`).dataset.chord;
       const chordKeys = chords[chordLetter].keys
@@ -95,7 +99,15 @@ const notes = {
       }
       return
     }
+
+    // IF NOTE
+    
+    // GLOW KEY
     const noteLetter = document.querySelector(`button[data-code="${key.dataset.code}"]`).dataset.note;
+    const pianoKey = document.querySelector(`div[data-note="${noteLetter}"]`)
+    pianoKey.classList.add('glowKey')
+
+    // PLAY AUDIO
     const audio = notes[noteLetter]
     audio.currentTime = 0;
     audio.play();
@@ -104,6 +116,10 @@ const notes = {
   }
 
   function onKeyDown(e) {
+    
+    if (!activeKeys.includes(e.code)) {
+      return
+    }
   
     if (alreadyPressed.includes(e.code)) return;
     alreadyPressed.push(e.code);
@@ -117,13 +133,13 @@ const notes = {
   
       let note = document.querySelector(`button[data-code="${e.code}"]`).dataset.note
   
+      // GLOW KEY
+      const noteLetter = document.querySelector(`button[data-code="${e.code}"]`).dataset.note;
+      const pianoKey = document.querySelector(`div[data-note="${noteLetter}"]`)
+      pianoKey.classList.add('glowKey')
   
       notes[note].currentTime = 0
       notes[note].play()
-    }
-  
-    if (!activeKeys.includes(e.code)) {
-      return
     }
 
     // IF CHORD
@@ -164,7 +180,14 @@ function onKeyUp(e) {
   let pressedKey = alreadyPressed.indexOf(e.code)
   alreadyPressed.splice(pressedKey, 1)
   let key = document.querySelector(`[data-code=${e.code}]`)
-  key.classList.remove('playing', 'glowKey', 'glowChord', 'chordIndicatorOn');
+  key.classList.remove('playing', 'glowKey', 'glowChord', 'glowKey', 'chordIndicatorOn');
+
+  // REMOVE KEY GLOW
+  if (!chordKeys.includes(e.code)) {
+    const noteLetter = document.querySelector(`button[data-code="${e.code}"]`).dataset.note;
+    const pianoKey = document.querySelector(`div[data-note="${noteLetter}"]`)
+    pianoKey.classList.remove('glowKey')
+  }
 
   if (e.code === 'KeyX') {
     currentChord = 1
@@ -187,7 +210,7 @@ function onKeyUp(e) {
 function removeTransition(e) {
   if (e.propertyName !== 'transform') return;  
   const key = e.target.closest('button') || e.target
-  key.classList.remove('playing', 'glowKey', 'glowChord', 'chordIndicatorOn');
+  key.classList.remove('playing', 'glowKey', 'glowChord', 'glowKey', 'chordIndicatorOn');
 }
 
   changeBackground.addEventListener('transitionend', removeTransition);
@@ -222,14 +245,11 @@ function glowChordOnClick() {
 }
 
 function glowChordOff() {
-    let letter = document.querySelector(`#chordLetter${currentChord}`).textContent.trim()
-    let chordElement = document.querySelector(`#chordLetter${currentChord}`)
-    
-    setTimeout(() => {
-      chords[letter].keys.map(key => document.querySelector(`div[data-note="${key}"`).classList.remove('glowChord'))
-      chordElement.classList.remove('chordIndicatorOn');
-    }, 500)
-
+  let letter = document.querySelector(`#chordLetter${currentChord}`).textContent.trim()
+  let chordElement = document.querySelector(`#chordLetter${currentChord}`)
+  
+  chords[letter].keys.map(key => document.querySelector(`div[data-note="${key}"`).classList.remove('glowChord'))
+  chordElement.classList.remove('chordIndicatorOn');
 }
 
 
@@ -237,6 +257,8 @@ function glowChordOff() {
 
   /* Get the documentElement (<html>) to display the page in fullscreen */
 let elem = document.documentElement;
+
+let isFullscreen = document.webkitIsFullScreen || document.mozFullScreen || false;
 
   /* View in fullscreen */
 function openFullscreen() {
