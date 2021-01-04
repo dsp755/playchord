@@ -146,7 +146,7 @@ body {
 .key2 {
   border: .2rem solid rgba(255, 255, 255, 0.432);
   border-radius: 0rem 0rem 0.8rem 0.8rem;
-  transition: all 0.8s;
+  transition: all 0.4s;
   height: calc(var(--width) * 2);
   width: var(--width);
   text-align: center;

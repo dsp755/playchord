@@ -49,16 +49,16 @@ const notes = {
 
   const alreadyPressed = [];
 
-  fullScreen.addEventListener('click', openFullscreen);
+  fullScreen.addEventListener('mousedown', openFullscreen);
 
-  keys.addEventListener('click', onKeyClick);
-  keys2.addEventListener('click', onKeyClick);
+  keys.addEventListener('mousedown', onKeyClick);
+  keys2.addEventListener('mousedown', onKeyClick);
   
-  tonalitySelector.addEventListener('click', () => {
+  tonalitySelector.addEventListener('mousedown', () => {
     document.querySelector('.tonalitiesContainer').classList.toggle('--visible')
   });
 
-  tonalityButtons.forEach(button => button.addEventListener('click', selectTonality))
+  tonalityButtons.forEach(button => button.addEventListener('mousedown', selectTonality))
   
   document.addEventListener('keydown', onKeyDown);
   document.addEventListener('keyup', onKeyUp);
@@ -106,6 +106,7 @@ const notes = {
     const noteLetter = document.querySelector(`button[data-code="${key.dataset.code}"]`).dataset.note;
     const pianoKey = document.querySelector(`div[data-note="${noteLetter}"]`)
     pianoKey.classList.add('glowKey')
+    setTimeout(() => pianoKey.classList.remove('glowKey'), 400)
 
     // PLAY AUDIO
     const audio = notes[noteLetter]
@@ -214,7 +215,7 @@ function removeTransition(e) {
 }
 
   changeBackground.addEventListener('transitionend', removeTransition);
-  changeBackground.addEventListener('click', function() {
+  changeBackground.addEventListener('mousedown', function() {
     document.querySelector('#background').classList.toggle('background2');
   });
 
