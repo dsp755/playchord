@@ -38,7 +38,7 @@ const notes = {
   const bottomKeys = document.querySelector('.showKeys')
   const chordSounds = Array.from(document.querySelectorAll('.chord'))
   const body = document.querySelector('body');
-  const background = document.querySelector('#background');
+  const changeBackground = document.querySelector('#changeBackground');
   const tonalitySelector = document.querySelector('#tonalitySelector'); 
   const tonalityButtons = Array.from(document.querySelectorAll('.tonality-button'))
   const fullScreen = document.querySelector('#fullScreen');
@@ -103,57 +103,57 @@ const notes = {
 
   }
 
-  function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;  
-    const key = e.target.closest('button') || e.target
-    key.classList.remove('playing', 'glowKey', 'glowChord', 'chordIndicatorOn');
-  }
-
-function onKeyDown(e) {
-
-  if (alreadyPressed.includes(e.code)) return;
-  alreadyPressed.push(e.code);
-
-  let element = document.querySelector(`button[data-code="${e.code}"]`)
-
-  if (document.querySelector(`button[data-code="${e.code}"]`).dataset.note) {
-
-    let note = document.querySelector(`button[data-code="${e.code}"]`).dataset.note
-
+  function onKeyDown(e) {
+  
+    if (alreadyPressed.includes(e.code)) return;
+    alreadyPressed.push(e.code);
+  
+    let element = document.querySelector(`button[data-code="${e.code}"]`)
     element.classList.add('playing')
 
-    notes[note].currentTime = 0
-    notes[note].play()
+    // IF NOTE 
+  
+    if (document.querySelector(`button[data-code="${e.code}"]`).dataset.note) {
+  
+      let note = document.querySelector(`button[data-code="${e.code}"]`).dataset.note
+  
+  
+      notes[note].currentTime = 0
+      notes[note].play()
+    }
+  
+    if (!activeKeys.includes(e.code)) {
+      return
+    }
+
+    // IF CHORD
+  
+    if (document.querySelector(`button[data-code="${e.code}"]`).dataset.chord) {
+  
+      let chord = document.querySelector(`button[data-code="${e.code}"]`).dataset.chord
+  
+      if (e.code === 'KeyX') {
+        currentChord = 1
+      } else if (e.code === 'KeyC') {
+        currentChord = 2
+      } else if (e.code === 'KeyV') {
+        currentChord = 3
+      }  else if (e.code === 'KeyB') {
+        currentChord = 4
+      } else if (e.code === 'KeyN') {
+        currentChord = 5
+      }
+
+      let chordLetter = document.querySelector(`#chordLetter${currentChord}`).textContent.trim()
+
+      chords[chordLetter].keys.forEach(key => {
+        notes[key].currentTime = 0
+        notes[key].play()
+      })
+      
+      glowChordOnKey()
+    }
   }
-
-  if (!activeKeys.includes(e.code)) {
-    return
-  }
-
-  if (alreadyPressed.includes(e.code)) return;
-  alreadyPressed.push(e.code);
-
-  element.classList.add('playing')
-
-  let chord = document.querySelector(`button[data-code="${e.code}"]`).dataset.chord
-
-  if (e.code === 'KeyX') {
-    currentChord = 1
-    glowChordOnKey()
-  } else if (e.code === 'KeyC') {
-    currentChord = 2
-    glowChordOnKey()
-  } else if (e.code === 'KeyV') {
-    currentChord = 3
-    glowChordOnKey()
-  }  else if (e.code === 'KeyB') {
-    currentChord = 4
-    glowChordOnKey()
-  } else if (e.code === 'KeyN') {
-    currentChord = 5
-    glowChordOnKey()
-  }
-}
 
 function onKeyUp(e) {
 
@@ -184,9 +184,15 @@ function onKeyUp(e) {
   }
 }
 
-  background.addEventListener('transitionend', removeTransition);
-  background.addEventListener('click', function() {
-    body.classList.toggle('background2');
+function removeTransition(e) {
+  if (e.propertyName !== 'transform') return;  
+  const key = e.target.closest('button') || e.target
+  key.classList.remove('playing', 'glowKey', 'glowChord', 'chordIndicatorOn');
+}
+
+  changeBackground.addEventListener('transitionend', removeTransition);
+  changeBackground.addEventListener('click', function() {
+    document.querySelector('#background').classList.toggle('background2');
   });
 
   function glowChordOnKey() {
