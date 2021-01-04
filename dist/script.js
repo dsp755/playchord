@@ -111,6 +111,9 @@ const notes = {
 
 function onKeyDown(e) {
 
+  if (alreadyPressed.includes(e.code)) return;
+  alreadyPressed.push(e.code);
+
   let element = document.querySelector(`button[data-code="${e.code}"]`)
 
   if (document.querySelector(`button[data-code="${e.code}"]`).dataset.note) {
