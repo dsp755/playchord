@@ -139,12 +139,12 @@ tonalityModes.forEach(el => el.addEventListener('mousedown', () => {
   setChordletters()
   }))
 
-const alreadyPressed = [];
+const alreadyPressed = []
 
-fullScreen.addEventListener('mousedown', openFullscreen);
+fullScreen.addEventListener('mousedown', openFullscreen)
 
-keys.addEventListener('mousedown', onKeyClick);
-keys2.addEventListener('mousedown', onKeyClick);
+keys.addEventListener('mousedown', onKeyClick)
+keys2.addEventListener('mousedown', onKeyClick)
 
 tonalitySelector.addEventListener('mousedown', () => {
   document.querySelector('.tonalitiesContainer').classList.toggle('--visible')
