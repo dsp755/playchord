@@ -43,17 +43,6 @@ body {
   transition: all 1.5s ease;  
 }
 
-/* .background1 {
-  background: url(./images/piano.jpg) bottom center;
-  background: url(./images/wall.jpg) bottom center;
-  background-size: cover;
-}
-
-.background2 {
-  background: url(./images/wall2.jpg) bottom center;
-  background-size: cover;
-} */
-
 .mainContainer {
   display: flex;
   flex-direction: column;
@@ -67,7 +56,7 @@ body {
   height: 120px;
   width: 800px;
   margin-top: 20px;
-  margin-bottom: 150px;
+  margin-bottom: 170px;
   transition: all .07s ease;
   visibility: hidden;
   opacity: 0;
@@ -124,7 +113,7 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin-bottom: 17vh;
+    margin-bottom: 13vh;
 }
 
 .showChords {
