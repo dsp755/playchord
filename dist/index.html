@@ -29,55 +29,55 @@
       <main class="mainContainer">
         <div class="tonalitiesContainer">
           <div class="majorMinor">
-            <div class="tonality-button">Major</div>
-            <div class="tonality-button">Minor</div>
+            <div class="tonality-mode --selected" id="major">Major</div>
+            <div class="tonality-mode" id="minor">Minor</div>
           </div>
           <div class="tonalityButtons">
-            <div class="tonality-button">C</div>
-            <div class="tonality-button">Db</div>
-            <div class="tonality-button">D</div>
-            <div class="tonality-button">Eb</div>
-            <div class="tonality-button">E</div>
-            <div class="tonality-button">F</div>
-            <div class="tonality-button">Gb</div>
-            <div class="tonality-button">G</div>
-            <div class="tonality-button">Ab</div>
-            <div class="tonality-button">A</div>
-            <div class="tonality-button">Bb</div>
-            <div class="tonality-button">B</div>
+            <div class="tonality-key --selected">C</div>
+            <div class="tonality-key">Db</div>
+            <div class="tonality-key">D</div>
+            <div class="tonality-key">Eb</div>
+            <div class="tonality-key">E</div>
+            <div class="tonality-key">F</div>
+            <div class="tonality-key">Gb</div>
+            <div class="tonality-key">G</div>
+            <div class="tonality-key">Ab</div>
+            <div class="tonality-key">A</div>
+            <div class="tonality-key">Bb</div>
+            <div class="tonality-key">B</div>
           </div>
         </div>
   
         <div class="keys">
-            <button data-code="KeyA" data-note="C1" class="key">
+            <button data-code="KeyA" data-number="0" class="key">
                 <kbd class="button-letter">A</kbd>
                 <span class="sound">I</span>
               </button>
-              <button data-code="KeyS" data-note="D1" class="key">
+              <button data-code="KeyS" data-number="1" class="key">
                 <kbd class="button-letter">S</kbd>
                 <span class="sound">II</span>
               </button>
-              <button data-code="KeyD" data-note="E1" class="key">
+              <button data-code="KeyD" data-number="2" class="key">
                 <kbd class="button-letter">D</kbd>
                 <span class="sound">III</span>
               </button>
-              <button data-code="KeyF" data-note="F1" class="key">
+              <button data-code="KeyF" data-number="3" class="key">
                 <kbd class="button-letter">F</kbd>
                 <span class="sound">IV</span>
               </button>
-              <button data-code="KeyG" data-note="G1" class="key">
+              <button data-code="KeyG" data-number="4" class="key">
                 <kbd class="button-letter">G</kbd>
                 <span class="sound">V</span>
               </button>
-              <button data-code="KeyH" data-note="A1" class="key">
+              <button data-code="KeyH" data-number="5" class="key">
                 <kbd class="button-letter">H</kbd>
                 <span class="sound">VI</span>
               </button>
-              <button data-code="KeyJ" data-note="B1" class="key">
+              <button data-code="KeyJ" data-number="6" class="key">
                 <kbd class="button-letter">J</kbd>
                 <span class="sound">VII</span>
               </button>
-              <button data-code="KeyK" data-note="C2" class="key">
+              <button data-code="KeyK" data-number="7" class="key">
                 <kbd class="button-letter">K</kbd>
                 <span class="sound">VIII</span>
               </button>
@@ -106,19 +106,19 @@
         </div>
   
         <div class="showChords">
-              <div id="chordLetter1" class="chordIndicatorOff">
+              <div id="chordLetter1" class="chordIndicatorOff chordLetter">
                   <span>C</span>
                 </div>
-                <div id="chordLetter2" class="chordIndicatorOff">
+                <div id="chordLetter2" class="chordIndicatorOff chordLetter">
                   <span>F</span>
                 </div>
-                <div id="chordLetter3" class="chordIndicatorOff">
+                <div id="chordLetter3" class="chordIndicatorOff chordLetter">
                   <span>G</span>
                 </div>
-                <div id="chordLetter4" class="chordIndicatorOff">
+                <div id="chordLetter4" class="chordIndicatorOff chordLetter">
                   <span>Am</span>
                 </div>
-                <div id="chordLetter5" class="chordIndicatorOff">
+                <div id="chordLetter5" class="chordIndicatorOff chordLetter">
                   <span>Bb</span>
                 </div>
         </div>
