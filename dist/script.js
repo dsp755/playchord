@@ -102,10 +102,10 @@ let currentChord = 1
 const keys = document.querySelector('.keys')
 const keys2 = document.querySelector('.keys2')
 const chordSounds = Array.from(document.querySelectorAll('.chord'))
-const body = document.querySelector('body');
-const changeBackground = document.querySelector('#changeBackground')
+const body = document.querySelector('body')
 const tonalitySelector = document.querySelector('#tonalitySelector')
 const tonalityButtons = Array.from(document.querySelectorAll('.tonality-button'))
+const changeBackground = document.querySelector('#changeBackground')
 const fullScreen = document.querySelector('#fullScreen')
 const activeKeys = [ 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN' ]
 const chordKeys = [ 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN' ]
@@ -309,7 +309,7 @@ function removeTransition(e) {
 
   changeBackground.addEventListener('transitionend', removeTransition);
   changeBackground.addEventListener('mousedown', function() {
-    document.querySelector('#background').classList.toggle('background2');
+    document.querySelector('.wrapper').classList.toggle('wrapper2');
   });
 
   function glowChordOnKey() {
@@ -342,8 +342,8 @@ function glowChordOff() {
   let letter = document.querySelector(`#chordLetter${currentChord}`).textContent.trim()
   let chordElement = document.querySelector(`#chordLetter${currentChord}`)
   
-  chords[letter].keys.map(key => document.querySelector(`div[data-note="${key}"`).classList.remove('glowChord'))
-  chordElement.classList.remove('chordIndicatorOn');
+  chords[letter].keys.map(key => setTimeout(() => document.querySelector(`div[data-note="${key}"`).classList.remove('glowChord'), 300))
+  setTimeout(() => chordElement.classList.remove('chordIndicatorOn'), 300)
 }
 
 
