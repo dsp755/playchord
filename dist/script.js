@@ -233,7 +233,6 @@ function onKeyDown(e) {
     const audio = notes[tonalities[currentTonality][currentKey].notes[noteNumber]]
     audio.currentTime = 0;
     audio.play();
-    setTimeout(() => { pianoKey.classList.remove("playing") }, 100)
   }
 
   // IF CHORD
@@ -280,7 +279,7 @@ function onKeyUp(e) {
   if (!chordKeys.includes(e.code)) {
     const noteNumber = document.querySelector(`button[data-code="${e.code}"]`).dataset.number
     const pianoKey = document.querySelector(`div[data-note="${tonalities[currentTonality][currentKey].notes[noteNumber]}"]`)
-    pianoKey.classList.remove('glowKey')
+    setTimeout(() => { pianoKey.classList.remove("glowKey") }, 300)
   }
 
   if (e.code === 'KeyX') {
