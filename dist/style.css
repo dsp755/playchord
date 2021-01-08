@@ -22,7 +22,7 @@ body {
 .wrapper {
   width: 90%;
   height: 90%;
-  border: solid 4px white;
+  border: solid 10px white;
   border-radius: 15px;
   background-color: rgb(19, 19, 19);
   background: url(./images/wall.jpg) bottom center;
@@ -104,7 +104,7 @@ body {
 
 .keys {
     display: flex;
-    height: 15vh;
+    height: 17vh;
     align-items: flex-end;
     justify-content: center;
 }
@@ -318,6 +318,11 @@ a {
     .firstContainer {
       height: 185px;
     }
+
+    .keys {
+      height: 10vh;
+    }
+
     .keys2 {
       margin-bottom: 7vh;
     }
