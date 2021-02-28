@@ -1,0 +1,16 @@
+{
+  "name": "PWAConf",
+  "short_name": "PWAConf",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "black",
+  "description": "Playchord",
+  "theme_color": "black",
+  "icons": [
+    {
+      "src": "./images/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
