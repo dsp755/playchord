@@ -273,7 +273,7 @@ a {
 
   @media screen and (max-width: 1600px) {
     .tonalitiesContainer {
-      margin-bottom: 100px;
+      margin-bottom: 40px;
     }
   }
 
@@ -332,10 +332,11 @@ a {
 
     .keys {
       height: 10vh;
+      margin-top: 20px;
     }
 
     .keys2 {
-      margin-bottom: 7vh;
+      margin-bottom: 3vh;
     }
   }
 
