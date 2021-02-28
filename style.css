@@ -264,7 +264,18 @@ button {
 a {
   text-decoration: none;
   }
-  
+
+  @media screen and (max-width: 1200px) {
+    .keys2 {
+      margin-bottom: 0px;
+    }
+  }
+
+  @media screen and (max-width: 1600px) {
+    .tonalitiesContainer {
+      margin-bottom: 100px;
+    }
+  }
 
   @media screen and (max-width: 1850px) {
     .black {
